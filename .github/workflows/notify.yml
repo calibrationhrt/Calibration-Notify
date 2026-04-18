@@ -23,3 +23,6 @@ jobs:
 
       - name: Run script
         run: node checkAndNotify.js
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          GROUP_ID: ${{ secrets.GROUP_ID }}
