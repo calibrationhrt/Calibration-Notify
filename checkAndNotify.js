@@ -57,6 +57,13 @@ function getDiffDays(dueDate) {
 
 // 🚀 main
 async function run() {
+  const today = new Date().getDay();
+
+  if (today === 0 || today === 6) {
+    console.log("วันนี้วันหยุด ไม่แจ้งเตือน");
+    return;
+  }
+  
   const snapshot = await getDocs(collection(db, "devices"));
 
   let nearList = [];
