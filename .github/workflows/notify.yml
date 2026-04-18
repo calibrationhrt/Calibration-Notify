@@ -2,7 +2,7 @@ name: Line Notify
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # ⏰ 08:00 ไทย
+    - cron: '*/5 * * * *'  # ⏰ 08:00 ไทย
   workflow_dispatch:
 
 jobs:
