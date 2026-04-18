@@ -17,8 +17,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // 🔥 LINE
-const ACCESS_TOKEN = "K/06f3u1qxssTn0eN8pALzRzykbAhdUgpRcXpmASLN3/6q6ouOOyLZVY+twCfpbezxK2DOorsuzJz2fFLUNjvz8a44/lMqfv0P0Gus1OT0pnRax46UFTrYdY77j+wk+kEQn3y47vAL0/ZU45ymGPegdB04t89/1O/w1cDnyilFU=";
-const GROUP_ID = "Cf32b7901d6a41722b42aeab74c3e2ef0";
+const ACCESS_TOKEN = process.env.LINE_TOKEN;
+const GROUP_ID = process.env.GROUP_ID;
 
 // 🔥 ฟังก์ชันคำนวณ
 function getStatus(dueDate) {
