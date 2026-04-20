@@ -4,12 +4,12 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 // 🔥 config เดิมของคุณ
 const firebaseConfig = {
-  apiKey: "AIzaSyCI0J3GHKFl9lmVwOM03stAxwvHHkYFHEM",
-  authDomain: "calibration-bcc66.firebaseapp.com",
-  projectId: "calibration-bcc66",
-  storageBucket: "calibration-bcc66.firebasestorage.app",
-  messagingSenderId: "156162245790",
-  appId: "1:156162245790:web:09d71d12511176410d278f",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
   measurementId: "G-EK23GYH3FL"
 };
 
@@ -19,6 +19,11 @@ const db = getFirestore(app);
 // 🔥 LINE
 const ACCESS_TOKEN = process.env.LINE_TOKEN;
 const GROUP_ID = process.env.GROUP_ID;
+
+if (!ACCESS_TOKEN || !GROUP_ID) {
+  console.error("❌ ไม่พบ LINE_TOKEN หรือ GROUP_ID");
+  process.exit(1);
+}
 
 // 🔥 ฟังก์ชันคำนวณ
 function getStatus(dueDate) {
