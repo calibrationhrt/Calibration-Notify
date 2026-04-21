@@ -126,7 +126,7 @@ async function run() {
                     type: "separator",
                     margin: "md"
                 },
-                (overdueList.length > 0 ? [
+                ...(overdueList.length > 0 ? [
                   {
                     type: "text",
                     text: "🔴 เกินกำหนด",
@@ -160,7 +160,7 @@ async function run() {
                   }))
                 ] : []),
 
-                (nearList.length > 0 ? [
+                ...(nearList.length > 0 ? [
                   {
                     type: "text",
                     text: "🟡 ใกล้ครบกำหนด",
