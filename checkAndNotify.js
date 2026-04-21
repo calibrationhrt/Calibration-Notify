@@ -126,75 +126,76 @@ async function run() {
                     type: "separator",
                     margin: "md"
                 },
-                {
+                (overdueList.length > 0 ? [
+                  {
                     type: "text",
                     text: "🔴 เกินกำหนด",
                     weight: "bold",
                     margin: "sm",
                     color: "#f12424"
-                },
-                ...overdueList.map(item => ({
+                  },
+                  ...overdueList.map(item => ({
                     type: "box",
                     layout: "vertical",
                     margin: "sm",
-                    backgroundColor: "#FCEAEA", // 🔴 จางลง
+                    backgroundColor: "#FCEAEA",
                     cornerRadius: "5px",
                     paddingAll: "4px",
                     contents: [
-                        {
+                      {
                         type: "text",
                         text: `${item.text.split("\n")[0]}`,
                         weight: "bold",
                         size: "xxs",
                         wrap: true,
                         maxLines: 2
-                        },
-                        {
+                      },
+                      {
                         type: "text",
                         text: item.text.split("\n")[1],
                         size: "xxs",
                         color: "#555555",
-                        },
+                      },
                     ]
-                })),
+                  }))
+                ] : []),
 
-                {
+                (nearList.length > 0 ? [
+                  {
                     type: "text",
                     text: "🟡 ใกล้ครบกำหนด",
                     weight: "bold",
                     margin: "sm",
                     color: "#FFA500"
-                },
-                ...nearList.map(item => ({
+                  },
+                  ...nearList.map(item => ({
                     type: "box",
                     layout: "vertical",
                     margin: "sm",
-                    backgroundColor: "#FFF7E6", // 🔴 จางลง
+                    backgroundColor: "#FFF7E6",
                     cornerRadius: "5px",
                     paddingAll: "4px",
                     contents: [
-                        {
+                      {
                         type: "text",
                         text: `${item.text.split("\n")[0]}`,
                         weight: "bold",
                         size: "xxs",
                         wrap: true,
                         maxLines: 2
-                        },
-                        {
+                      },
+                      {
                         type: "text",
                         text: item.text.split("\n")[1],
                         size: "xxs",
                         color: "#555555",
-                        },
+                      },
                     ]
-                }))
-            ]
-            }
-        }
-        }
-        ]
-    },
+                  }))
+                ] : [])
+              ]
+     }}}]},
+    
     {
       headers: {
         "Content-Type": "application/json",
